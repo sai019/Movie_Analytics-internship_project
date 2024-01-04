@@ -5,3 +5,5 @@ pandas
 numpy
 ipykernel
 python-dotenv
+
+-e .
