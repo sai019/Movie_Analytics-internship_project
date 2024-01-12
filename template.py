@@ -1,4 +1,5 @@
 import os
+import sys
 import logging
 from pathlib import Path
 
@@ -6,9 +7,10 @@ from pathlib import Path
 
 # logs can be saved in a file using filename='logs.log' in logging.basicConfig()
 
-FORMAT = '%(levelname)s:- %(message)s: (Filename:[%(filename)s] -> Line:%(lineno)d) : (%(asctime)s)'
+FORMAT = '[%(asctime)s] %(levelname)s: %(message)s'
 
-logging.basicConfig(level=logging.INFO, format=FORMAT,datefmt= '%d/%m/%Y - %I:%M:%S %p')
+logging.basicConfig(level=logging.INFO, format=FORMAT,datefmt= '%d/%m/%Y - %I:%M:%S %p',
+                    handlers=[logging.StreamHandler(sys.stdout)])
 
 # list of files should be according to your project structure
 
@@ -39,6 +41,9 @@ for filepath in list_of_files:
     if filedir != "":
         os.makedirs(filedir, exist_ok=True)
         logging.info(f"Creating the dirctory: {filedir} for the file: {filename}")
+
+    else:
+        logging.info(f"{filedir} is already exists")    
 
     if (not os.path.exists(filepath)) or (os.path.getsize(filepath) == 0):
         with open(filepath,'w') as f:
