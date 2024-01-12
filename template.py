@@ -3,16 +3,10 @@ import sys
 import logging
 from pathlib import Path
 
-# FORMAT(Custom) can be edited according to your preference
-
-# logs can be saved in a file using filename='logs.log' in logging.basicConfig()
-
 FORMAT = '[%(asctime)s] %(levelname)s: %(message)s'
 
 logging.basicConfig(level=logging.INFO, format=FORMAT,datefmt= '%d/%m/%Y - %I:%M:%S %p',
                     handlers=[logging.StreamHandler(sys.stdout)])
-
-# list of files should be according to your project structure
 
 project_name = "Movie_Analytics"
 
@@ -31,7 +25,6 @@ list_of_files = [
     "Docs/.gitkeep",
     "Data/raw/.gitkeep",
     "Data/transformed/.gitkeep"
-
 ]
 
 for filepath in list_of_files:
