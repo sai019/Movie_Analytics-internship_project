@@ -8,17 +8,14 @@ FORMAT = '[%(asctime)s] %(levelname)s: %(message)s'
 logging.basicConfig(level=logging.INFO, format=FORMAT,datefmt= '%d/%m/%Y - %I:%M:%S %p',
                     handlers=[logging.StreamHandler(sys.stdout)])
 
-project_name = "Movie_Analytics"
-
 list_of_files = [
-    f"src/{project_name}/__init__.py",
-    f"src/{project_name}/components/__init__.py",
-    f"src/{project_name}/utils/__init__.py",
-    f"src/{project_name}/config/__init__.py",
-    f"src/{project_name}/config/configuration.py",
-    f"src/{project_name}/pipeline/__init__.py",
-    f"src/{project_name}/entity/__init__.py",
-    f"src/{project_name}/constants/__init__.py",
+    "src/__init__.py",
+    "src/components/__init__.py",
+    "src/utils/__init__.py",
+    "src/config/__init__.py",
+    "src/logger/__init__.py",
+    "src/exception/__init__.py",
+    "src/pipeline/__init__.py",
     "Images/.gitkeep",
     "requirements.txt",
     "research/.gitkeep",
