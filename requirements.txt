@@ -1,8 +1,7 @@
 pyspark
 findspark
 requests
-pandas 
-numpy
 ipykernel
 python-dotenv
+azure-storage-blob
 -e .
