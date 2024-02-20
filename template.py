@@ -1,12 +1,16 @@
+import logging
 import os
 import sys
-import logging
 from pathlib import Path
 
-FORMAT = '[%(asctime)s] %(levelname)s: %(message)s'
+FORMAT = "[%(asctime)s] %(levelname)s: %(message)s"
 
-logging.basicConfig(level=logging.INFO, format=FORMAT,datefmt= '%d/%m/%Y - %I:%M:%S %p',
-                    handlers=[logging.StreamHandler(sys.stdout)])
+logging.basicConfig(
+    level=logging.INFO,
+    format=FORMAT,
+    datefmt="%d/%m/%Y - %I:%M:%S %p",
+    handlers=[logging.StreamHandler(sys.stdout)],
+)
 
 list_of_files = [
     "src/__init__.py",
@@ -21,7 +25,7 @@ list_of_files = [
     "research/.gitkeep",
     "Docs/.gitkeep",
     "Data/raw/.gitkeep",
-    "Data/transformed/.gitkeep"
+    "Data/transformed/.gitkeep",
 ]
 
 for filepath in list_of_files:
@@ -30,12 +34,12 @@ for filepath in list_of_files:
 
     if filedir != "":
         os.makedirs(filedir, exist_ok=True)
-        logging.info(f"Creating the dirctory: {filedir} for the file: {filename}")  
+        logging.info(f"Creating the dirctory: {filedir} for the file: {filename}")
 
     if (not os.path.exists(filepath)) or (os.path.getsize(filepath) == 0):
-        with open(filepath,'w') as f:
+        with open(filepath, "w") as f:
             pass
             logging.info(f"Creating empty file: {filepath}")
 
     else:
-        logging.info(f"{filename} is already exists")        
+        logging.info(f"{filename} is already exists")
