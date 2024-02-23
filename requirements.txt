@@ -2,6 +2,7 @@ pyspark
 findspark
 requests
 ipykernel
+pytest
 python-dotenv
-azure-storage-blob
+azure-storage-file-datalake
 -e .
