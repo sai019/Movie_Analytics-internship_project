@@ -1,13 +1,35 @@
 import os
 import shutil
+import sys
 import zipfile
 
 import requests
+
+from src.exception.exception import CustomException
 
 
 def create_directories(*directories):
     for directory in directories:
         os.makedirs(directory, exist_ok=True)
+
+
+def setup_directories(current_directory):
+    local_directory = change_directory(current_directory, 2)
+    data_directory = os.path.join(local_directory, "Data")
+    raw_directory = os.path.join(data_directory, "raw")
+    transformed_directory = os.path.join(data_directory, "transformed")
+    try:
+        create_directories(data_directory, raw_directory, transformed_directory)
+    except Exception as e:
+        raise CustomException(e, sys)
+    return data_directory, raw_directory
+
+
+def change_directory(current_directory, levels):
+    new_directory = current_directory
+    for _ in range(levels):
+        new_directory = os.path.abspath(os.path.join(new_directory, ".."))
+    return new_directory
 
 
 def download_dataset(url, local_zip_file):
@@ -26,19 +48,3 @@ def move_files(source_path, target_path):
         source_item_path = os.path.join(source_path, item)
         target_item_path = os.path.join(target_path, item)
         shutil.move(source_item_path, target_item_path)
-
-
-def move_up_directory(current_directory, levels):
-    """
-    Move up in the directory structure by the specified number of levels.
-    Args:
-    - current_directory (str): The current directory.
-    - levels (int): The number of levels to move up.
-
-    Returns:
-    - str: The path of the new directory after moving up.
-    """
-    new_directory = current_directory
-    for _ in range(levels):
-        new_directory = os.path.abspath(os.path.join(new_directory, ".."))
-    return new_directory
