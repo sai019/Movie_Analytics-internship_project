@@ -1,11 +1,13 @@
 import os
 import shutil
 import sys
-import zipfile
+from io import BytesIO
+from zipfile import ZipFile
 
 import requests
 
 from src.exception.exception import CustomException
+from src.logging.logger import logging
 
 
 def create_directories(*directories):
@@ -32,15 +34,14 @@ def change_directory(current_directory, levels):
     return new_directory
 
 
-def download_dataset(url, local_zip_file):
+def download_unzip_dataset(url, data_directory):
     response = requests.get(url)
-    with open(local_zip_file, "wb") as f:
-        f.write(response.content)
-
-
-def unzip_dataset(zip_file, extract_path):
-    with zipfile.ZipFile(zip_file, "r") as zip_ref:
-        zip_ref.extractall(extract_path)
+    if response.status_code == 200:
+        with ZipFile(BytesIO(response.content)) as zip_file:
+            zip_file.extractall(data_directory)
+            logging.info("Download and extraction successful.")
+    else:
+        logging.info(f"Failed to download. Status code: {response.status_code}")
 
 
 def move_files(source_path, target_path):
