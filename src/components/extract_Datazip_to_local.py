@@ -20,13 +20,9 @@ def download_unzip_move_dataset(dataset_url, data_directory, raw_directory):
             logging.info("Downloading Dataset from the source link to Data folder")
             download_unzip_dataset(dataset_url, data_directory)
             logging.info("Moving files to 'Data/raw' folder path")
-            unzipped_folder = os.path.join(
-                data_directory, os.listdir(data_directory)[0]
-            )
+            unzipped_folder = os.path.join(data_directory, os.listdir(data_directory)[0])
             move_files(unzipped_folder, raw_directory)
-            logging.info(
-                f"List of folders and files in the target directory: {raw_directory}"
-            )
+            logging.info(f"List of folders and files in the target directory: {raw_directory}")
             list_of_files(raw_directory)
             os.rmdir(unzipped_folder)
         except Exception as e:

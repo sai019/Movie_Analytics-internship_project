@@ -8,7 +8,7 @@ from src.config.config import (
     DIRECTORY_NAMES,
     FILE_SYSTEM_NAME,
     LOCAL_RAW_DIRECTORY,
-    RAW_DATA
+    RAW_DATA,
 )
 from src.exception.exception import CustomException
 from src.logging.logger import logging
