@@ -1,4 +1,4 @@
-name: project project
+name: Python project
 
 on:
   push:
