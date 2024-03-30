@@ -1,7 +1,7 @@
 <h1 align="center">Movie_Analytics-internship_project</h1>
 
 ### Problem Statement:<br>
-The objective is to develop a big data project utilizing Apache Spark and python to address analytical queries on the semi-structured MovieLens dataset, comprising a million records. The tasks involve the use of Spark RDD, Spark SQL, and Spark DataFrames, implemented through the Spark shell using Python API. The primary focus is on performing comprehensive analyses to extract valuable insights about users and movies, leveraging various Spark APIs.
+The objective is to develop a big data project utilizing Apache Spark and Python to address analytical queries on the semi-structured MovieLens dataset, comprising a million records. The tasks involve using Spark RDD, Spark SQL, and Spark DataFrames, implemented through the Spark shell using Python API. The primary focus is on performing comprehensive analyses to extract valuable insights about users and movies, leveraging various Spark APIs.
 
 ### Architecture:<br>
 <img align="center" alt="" src="https://raw.githubusercontent.com/sai019/Movie_Analytics-internship_project/main/Images/Movie-Analytics%20Architecture.gif" />
@@ -30,7 +30,7 @@ Storage of Cleaned Data:
 - Maintain the folder structure and naming conventions for organized data storage.
   
 Analytics with PySpark SQL and DataFrames:
-- Utilize PySpark SQL and DataFrames within Azure Databricks for conducting analytics on the transformed data.
+- Utilize PySpark SQL and DataFrames within Azure Databricks to conduct transformed data analytics.
 - Write SQL queries or DataFrame operations to extract insights and perform analytical computations.
 
 ### Cloning this project:<br> 
