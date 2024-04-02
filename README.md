@@ -3,6 +3,9 @@
 ### Problem Statement:<br>
 The objective is to develop a big data project utilizing Apache Spark and Python to address analytical queries on the semi-structured MovieLens dataset, comprising a million records. The tasks involve using Spark RDD, Spark SQL, and Spark DataFrames, implemented through the Spark shell using Python API. The primary focus is on performing comprehensive analyses to extract valuable insights about users and movies, leveraging various Spark APIs.
 
+### Approach:<be>
+Data is retrieved from a web URL in compressed zip format, then transferred to 'raw_data' folder in Azure Data Lake Storage Gen2. PySpark in Azure Databricks transforms the data for cleanliness and quality, storing it in 'transformed_data'. Comprehensive analytics using PySpark SQL and DataFrames provide valuable insights, enhancing data quality and analytical capabilities. This approach ensures efficient data management from retrieval to analytics processing.
+
 ### Architecture:<br>
 <img align="center" alt="" src="https://raw.githubusercontent.com/sai019/Movie_Analytics-internship_project/main/Images/Movie-Analytics%20Architecture.gif" />
 
